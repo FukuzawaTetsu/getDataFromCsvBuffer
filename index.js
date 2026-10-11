@@ -258,4 +258,4 @@ function getLastRowNumber(buffer) {
     return count;
 };
 
-module.exports = { getDataPointRowColumn, getDataPointRowHeaderName };
+export { getDataPointRowColumn, getDataPointRowHeaderName };
