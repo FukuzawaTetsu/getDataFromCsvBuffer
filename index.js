@@ -1,3 +1,5 @@
+const crlf = Buffer.from([0x0d, 0x0a]);
+
 //get data from buffer by pointing row and column
 function getDataPointRowColumn(buffer, row, column, header) {
     let crlfCount = 0;
@@ -31,9 +33,7 @@ function getDataPointRowColumn(buffer, row, column, header) {
                         .slice(crlfPosition + 2, buffer.length)
                         .length;
                 };
-                // const lengthBetweenCrlf = buffer
-                //     .slice(crlfPosition + 2, buffer.indexOf(crlf, crlfPosition + 2))
-                //     .length;
+
                 let commaCount = 0;
                 let nowPosition = crlfPosition;
                 let nextCommaPosition = buffer.indexOf(0x2c, crlfPosition + 2);
