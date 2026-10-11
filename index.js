@@ -149,8 +149,6 @@ function getDataPointRowHeaderName(buffer, row, headerName) {
     let crlfCount2 = 0;
     let lengthCount2 = 0;
     let crlfPosition2 = -2;
-    let lengthBetweenCrlfCount2 = 0;
-    let nextRowlength2 = 0;
 
     //get column number of header pointed by parameter
     const columnPosition = buffer.indexOf(headerName, 0, buffer.indexOf(crlf));
@@ -214,7 +212,7 @@ function getDataPointRowHeaderName(buffer, row, headerName) {
         };
     } else {
         if (nextCommaPosition === -1) {
-            return buffer.slice(commaTempPosition + 1, nextCrlfPosition - 1);
+            return buffer.slice(commaTempPosition + 1, nextCrlfPosition);
         } else {
             if (nextCommaPosition < nextCrlfPosition) {
                 return buffer.slice(commaTempPosition + 1, nextCommaPosition);
